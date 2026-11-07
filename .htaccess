@@ -1,0 +1,9 @@
+# Keeps the policy links the payment partners already have working,
+# exactly as they were submitted (Apache / Bluehost).
+RewriteEngine On
+
+RewriteRule ^privacy-policy/?$                  privacy-policy.html [L]
+RewriteRule ^terms-and-conditions/?$            terms-and-conditions.html [L]
+RewriteRule ^cancellation-and-refund-policy/?$  cancellation-and-refund-policy.html [L]
+# the old site also used this slug for the refund page
+RewriteRule ^refund-and-cancellation-policy/?$  cancellation-and-refund-policy.html [L]

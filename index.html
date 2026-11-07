@@ -1,0 +1,716 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Kaha Mind</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Borel&family=EB+Garamond:wght@400;500&display=swap">
+<link rel="stylesheet" href="styles.css?v=12">
+<script>document.documentElement.className += " js";</script>
+</head>
+<body class="home">
+
+  <!-- ---------------------------------------------------------
+       Loading screen: ten seconds, then the page.
+       --------------------------------------------------------- -->
+  <div class="loader" id="loader" role="status" aria-live="polite">
+    <p class="loader-logo" aria-hidden="true"><span>Kaha</span><span>Mind</span></p>
+    <img class="loader-dog" id="loaderDog" src="art_11.png" alt="" aria-hidden="true">
+    <p class="loader-count"><span id="loaderPct">0</span>%</p>
+  </div>
+
+  <!-- ---------------------------------------------------------
+       Header: wordmark, inline nav, book button
+       --------------------------------------------------------- -->
+  <header class="home-header">
+    <a href="index.html" class="home-logo" aria-label="Kaha Mind home">
+      <span>Kaha</span><span>Mind</span>
+    </a>
+
+    <nav class="home-nav" aria-label="Main">
+      <ul>
+        <li><a href="index.html" aria-current="page">Home</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="dossier.html">Kaha et al.</a></li>
+        <li><a href="shop.html">Shop</a></li>
+        <li><a href="faq.html">FAQs</a></li>
+        <li><a href="edge.html">The Edge</a></li>
+        <li><a href="workshops.html">Workshops</a></li>
+      </ul>
+    </nav>
+
+    <a class="book-btn" href="contact.html">Book a<br>Session</a>
+
+    <button class="menu-toggle home-menu-toggle" type="button" id="menu-toggle"
+            aria-label="Open menu" aria-expanded="false" aria-controls="mobile-nav">
+      <span></span><span></span><span></span>
+    </button>
+  </header>
+
+  <!-- mobile dropdown, same links -->
+  <nav class="mobile-nav" id="mobile-nav" aria-label="Main">
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="contact.html">Contact</a></li>
+      <li><a href="services.html">Services</a></li>
+      <li><a href="dossier.html">Kaha et al.</a></li>
+      <li><a href="shop.html">Shop</a></li>
+      <li><a href="faq.html">FAQs</a></li>
+      <li><a href="edge.html">The Edge</a></li>
+      <li><a href="workshops.html">Workshops</a></li>
+    </ul>
+  </nav>
+
+  <main>
+
+    <!-- ---------------------------------------------------------
+         The collage. Every piece can be picked up and moved, but
+         only within this box.
+         --------------------------------------------------------- -->
+    <section class="collage" id="collage" aria-label="Illustrated crowd">
+      <img class="art" src="art_1.png" alt="" style="left:2.6%; top:5.3%; width:11.2%;" data-z="6">
+      <img class="art" src="art_10.png" alt="" style="left:20.2%; top:4.9%; width:14.1%;" data-z="5">
+      <img class="art" src="art_2.png" alt="" style="left:9.1%; top:13.2%; width:14.7%;" data-z="6">
+      <img class="art" src="art_17.png" alt="" style="left:52.1%; top:17.6%; width:17.1%; --rot:74deg;" data-z="5">
+      <img class="art" src="art_3.png" alt="" style="left:0.3%; top:23.3%; width:12.3%;" data-z="7">
+      <img class="art" src="art_8.png" alt="" style="left:23.1%; top:22.8%; width:27.0%;" data-z="6">
+      <img class="art" src="art_11.png" alt="" style="left:46.1%; top:12.0%; width:46.4%;" data-z="4">
+      <img class="art" src="art_14.png" alt="" style="left:69%; top:1.1%; width:28%;" data-z="3">
+      <img class="art" src="art_13.png" alt="" style="left:91.2%; top:33.9%; width:7.3%;" data-z="8">
+      <img class="art" src="art_9.png" alt="" style="left:32.8%; top:6.7%; width:21.7%;" data-z="9">
+      <img class="art" src="art_4.png" alt="" style="left:10.4%; top:41.8%; width:11.6%;" data-z="8">
+      <img class="art" src="art_5.png" alt="" style="left:19.6%; top:49.4%; width:18.6%;" data-z="9">
+      <img class="art" src="art_18.png" alt="" style="left:33.3%; top:41.3%; width:37.7%;" data-z="10">
+      <img class="art" src="art_7.png" alt="" style="left:38.7%; top:56.3%; width:7.5%;" data-z="11">
+      <img class="art" src="art_12.png" alt="" style="left:59.7%; top:53.1%; width:18.1%;" data-z="10">
+      <img class="art" src="art_6.png" alt="" style="left:0.0%; top:59.4%; width:20.6%;" data-z="11">
+      <img class="art" src="art_15.png" alt="" style="left:90.4%; top:70.4%; width:7.3%;" data-z="11">
+      <img class="art" src="art_16.png" alt="" style="left:74.1%; top:42.9%; width:4.4%;" data-z="11">
+    </section>
+
+    <!-- ---------------------------------------------------------
+         THE MOBILE HERO.
+
+         On screens 640px and under the draggable collage above is
+         hidden and this panel takes its place.
+
+         It holds the same eighteen characters as the desktop
+         collage, but laid out for a tall screen. The box keeps the
+         proportions of the old flat picture (just_image.png), so it
+         sits in exactly the space that picture used to fill.
+
+         HOW TO MOVE A PIECE. Everything is in the style="" on each
+         line, and all four numbers are percentages of this box, so
+         they hold at every phone width:
+
+           left    how far from the left edge
+           top     how far down from the top
+           width   how wide the piece is drawn
+           --rot   which way up it is, in degrees.
+                   Positive turns it clockwise, negative
+                   anticlockwise. 0deg is the file as drawn.
+           --flip  which way it faces.
+                   1 is the file as drawn, -1 mirrors it.
+           --wob   how much it wobbles, 1 being the normal amount.
+                   0.5 is half as much, 0 holds it still.
+                   Leave it off and it wobbles the normal amount.
+
+         --rot and --flip work together the way you would expect: a
+         piece is mirrored first and then turned, so changing --flip
+         will not send the rotation the wrong way.
+
+         The pieces are drawn in the order they are listed, so a
+         line further down sits on top of the ones above it. To pull
+         a piece to the front, move its line lower in the list.
+
+         Everything else about the panel is in styles.css section
+         11.14 - look for .hero-mobile.
+         --------------------------------------------------------- -->
+    <section class="hero-mobile" aria-label="Illustrated crowd">
+      <div class="hero-mobile-collage">
+        <img class="m-art" src="art_11.png" alt="" style="left:4.6%;  top:5.9%;  width:46.5%; --rot:0deg;     --flip:-1;">
+        <img class="m-art" src="art_5.png"  alt="" style="left:57.3%; top:0.0%;  width:31.0%; --rot:0deg;     --flip:1;">
+        <img class="m-art" src="art_9.png"  alt="" style="left:19.8%; top:21.8%; width:31.7%; --rot:10deg;    --flip:1;">
+        <img class="m-art" src="art_17.png" alt="" style="left:48.6%; top:24.8%; width:23.9%; --rot:67.5deg;  --flip:1;">
+        <img class="m-art" src="art_12.png" alt="" style="left:62.3%; top:17.9%; width:32.0%; --rot:0deg;     --flip:1;">
+        <img class="m-art" src="art_6.png"  alt="" style="left:37.6%; top:33.9%; width:12.5%; --rot:120deg;   --flip:1;">
+        <img class="m-art" src="art_7.png"  alt="" style="left:4.4%;  top:34.0%; width:12.2%; --rot:-30deg;   --flip:1;">
+        <img class="m-art" src="art_2.png"  alt="" style="left:16.7%; top:36.4%; width:23.2%; --rot:0deg;     --flip:1;">
+        <img class="m-art" src="art_10.png" alt="" style="left:65.1%; top:44.1%; width:28.6%; --rot:-7.5deg;  --flip:1;">
+        <img class="m-art" src="art_15.png" alt="" style="left:1.5%;  top:47.4%; width:19.3%; --rot:0deg;     --flip:-1;">
+        <img class="m-art" src="art_4.png"  alt="" style="left:88.3%; top:52.0%; width:12.0%; --rot:2.5deg;   --flip:1;">
+        <img class="m-art" src="art_18.png" alt="" style="left:23.8%; top:50.7%; width:62.8%; --rot:0deg;     --flip:1;">
+        <img class="m-art" src="art_14.png" alt="" style="left:9.6%;  top:60.3%; width:29.6%; --rot:0deg;     --flip:-1;">
+        <img class="m-art" src="art_1.png"  alt="" style="left:67.2%; top:62.0%; width:21.6%; --rot:0deg;     --flip:1;">
+        <img class="m-art" src="art_3.png"  alt="" style="left:82.0%; top:66.7%; width:14.0%; --rot:0deg;     --flip:-1;">
+        <img class="m-art" src="art_8.png"  alt="" style="left:29.4%; top:77.2%; width:33.3%; --rot:-25deg;   --flip:1;">
+        <img class="m-art" src="art_16.png" alt="" style="left:60.4%; top:78.4%; width:18.8%; --rot:0deg;     --flip:1;">
+        <img class="m-art" src="art_13.png" alt="" style="left:69.7%; top:79.0%; width:13.2%; --rot:0deg;     --flip:1;">
+
+        <!-- The logo, sitting in the clear space at the centre.
+             It is not an art piece, so it does not wobble: it holds
+             still while the crowd drifts around it.
+
+             It is placed by its own middle rather than its corner,
+             so left and top are where the CENTRE of the logo lands.
+             That means changing width never knocks it off centre -
+             it grows and shrinks around the same point. -->
+        <img class="hero-mobile-logo" src="logo_art.png" alt="Kaha Mind"
+             style="left:51.9%; top:45.2%; width:14.7%;">
+      </div>
+    </section>
+
+    <!-- ---------------------------------------------------------
+         Intro copy
+         --------------------------------------------------------- -->
+    <section class="home-intro">
+      <div class="intro-inner">
+        <div class="intro-col">
+          <p class="lead" data-reveal>We care about how you&rsquo;re doing. If you don't feel good, we don't feel good.</p>
+          <p data-reveal>So we built a space that feels warm, approachable, and actually supportive, whether you&rsquo;re having the worst week of your life or you just need someone to talk to.</p>
+        </div>
+
+        <div class="intro-col">
+          <p data-reveal>Think of us as a quiet, steady starting point where you can just pause and figure things out without any pressure. Whether that looks like specialized professional care, self-guided tools, or simply a safe space to get your thoughts out of your head, we&rsquo;re here to make sure you never have to navigate it alone.</p>
+        </div>
+
+        <div class="intro-col">
+          <p data-reveal>You don&rsquo;t need the right words, or a reason good enough to justify reaching out. Come as you are, on the days you have it figured out and the days you don't. Whenever you&rsquo;re ready, we&rsquo;re here.</p>
+        </div>
+      </div>
+
+      <!-- Book a session, for small screens only.
+
+           On desktop the button lives in the header, so this one is
+           hidden by default and only switched on inside the mobile
+           breakpoint in styles.css - search for .home-intro-cta. -->
+      <div class="home-intro-cta" data-reveal>
+        <a class="pill pill-lg" href="contact.html">Book a session</a>
+      </div>
+    </section>
+  </main>
+
+  <!-- ---------------------------------------------------------
+       Footer
+       --------------------------------------------------------- -->
+  <footer class="site-footer home-footer">
+    <div class="footer-brand">
+      <p class="footer-wordmark" data-reveal>
+        <span>Kaha</span>
+        <span>Mind</span>
+      </p>
+      <p class="footer-contact" data-reveal>Reach out to us at<br><a href="mailto:hello@kahamind.com">hello@kahamind.com</a></p>
+      <p class="footer-legal" data-reveal>
+        &copy; 2026 Kahamind Healthcare Private Limited<br>
+        Trading as Kaha Mind<br>
+        No. 516, Krishvi Aspire, Binnamangala Extension, CMH Road, Indiranagar 1st Stage, Bangalore, Karnataka 560038<br>
+        CIN: U85300KA2018PTC111157
+      </p>
+    </div>
+
+    <img class="art footer-art" id="footer-art" src="art_11.png" alt="" aria-hidden="true">
+
+    <nav class="footer-links" aria-label="Footer">
+      <div class="footer-col" data-reveal>
+        <h2>Explore</h2>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <li><a href="services.html">Services</a></li>
+          <li><a href="dossier.html">Kaha et al.</a></li>
+          <li><a href="shop.html">Shop</a></li>
+          <li><a href="faq.html">FAQs</a></li>
+          <li><a href="edge.html">The Edge</a></li>
+          <li><a href="workshops.html">Workshops</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col" data-reveal>
+        <h2>Legal</h2>
+        <ul>
+          <li><a href="privacy-policy.html">Privacy Policy</a></li>
+          <li><a href="terms-and-conditions.html">Terms &amp; Conditions</a></li>
+          <li><a href="cancellation-and-refund-policy.html">Cancellation &amp; Refund Policy</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col" data-reveal>
+        <h2>Socials</h2>
+        <ul>
+          <li><a href="https://www.instagram.com/kaha.mind/" target="_blank" rel="noopener">Instagram</a></li>
+          <li><a href="https://linkedin.com/" target="_blank" rel="noopener">LinkedIn</a></li>
+          <li><a href="https://x.com/kahamind" target="_blank" rel="noopener">X</a></li>
+        </ul>
+      </div>
+    </nav>
+  </footer>
+
+  <script>
+    /* ----------------------------------------------------------
+       Mobile menu
+       ---------------------------------------------------------- */
+    (function () {
+      var toggle = document.getElementById("menu-toggle");
+      var panel = document.getElementById("mobile-nav");
+      if (!toggle || !panel) return;
+
+      function setOpen(open) {
+        document.body.classList.toggle("nav-open", open);
+        toggle.setAttribute("aria-expanded", open ? "true" : "false");
+        toggle.setAttribute("aria-label", open ? "Close menu" : "Open menu");
+      }
+
+      toggle.addEventListener("click", function (e) {
+        e.stopPropagation();
+        setOpen(!document.body.classList.contains("nav-open"));
+      });
+
+      document.addEventListener("click", function (e) {
+        if (document.body.classList.contains("nav-open") &&
+            !panel.contains(e.target) && !toggle.contains(e.target)) setOpen(false);
+      });
+
+      document.addEventListener("keydown", function (e) {
+        if (e.key === "Escape") setOpen(false);
+      });
+
+      panel.addEventListener("click", function (e) {
+        if (e.target.closest("a")) setOpen(false);
+      });
+    })();
+  </script>
+
+  <script>
+    /* ----------------------------------------------------------
+       Draggable collage.
+
+       Each piece lifts slightly on hover and can be picked up and
+       moved, but only inside the collage box: never over the copy
+       below, never past the sides, never up into the header.
+       ---------------------------------------------------------- */
+    (function () {
+      var stage = document.getElementById("collage");
+      if (!stage) return;
+
+      var pieces = Array.prototype.slice.call(stage.querySelectorAll(".art"));
+      var topZ = 20;
+      var active = null;
+      var startX = 0, startY = 0, originX = 0, originY = 0;
+
+      /* positions are authored in %, so convert to pixels once the
+         stage has a measured size. everything after that is px. */
+      function pin() {
+        var box = stage.getBoundingClientRect();
+        pieces.forEach(function (el) {
+          if (el.dataset.pinned === "1") return;
+          var r = el.getBoundingClientRect();
+          el.dataset.x = (r.left - box.left);
+          el.dataset.y = (r.top - box.top);
+          el.style.left = el.dataset.x + "px";
+          el.style.top = el.dataset.y + "px";
+          el.style.width = r.width + "px";
+          el.dataset.pinned = "1";
+        });
+      }
+
+      /* on resize, go back to the authored percentages so the
+         collage reflows, then pin again */
+      var authored = pieces.map(function (el) {
+        return { el: el, css: el.getAttribute("style") };
+      });
+
+      var resizeTimer;
+      window.addEventListener("resize", function () {
+        clearTimeout(resizeTimer);
+        resizeTimer = setTimeout(function () {
+          authored.forEach(function (a) {
+            a.el.setAttribute("style", a.css);
+            a.el.dataset.pinned = "0";
+          });
+          requestAnimationFrame(pin);
+        }, 150);
+      });
+
+      function clamp(v, min, max) { return v < min ? min : (v > max ? max : v); }
+
+      function down(e) {
+        var el = e.target.closest(".art");
+        if (!el) return;
+        pin();
+
+        active = el;
+        /* a small random tilt, so picking a piece up feels physical */
+        el.style.setProperty("--tilt", ((Math.random() * 14) - 7).toFixed(1) + "deg");
+        el.dataset.spinStart = performance.now();
+        el.classList.add("is-held");
+        el.style.zIndex = ++topZ;
+
+        var p = e.touches ? e.touches[0] : e;
+        startX = p.clientX;
+        startY = p.clientY;
+        originX = parseFloat(el.dataset.x);
+        originY = parseFloat(el.dataset.y);
+
+        if (e.cancelable) e.preventDefault();
+      }
+
+      function move(e) {
+        if (!active) return;
+        var p = e.touches ? e.touches[0] : e;
+        var box = stage.getBoundingClientRect();
+        var w = active.offsetWidth;
+        var h = active.offsetHeight;
+
+        /* the piece has to stay wholly inside the collage box */
+        var x = clamp(originX + (p.clientX - startX), 0, box.width - w);
+        var y = clamp(originY + (p.clientY - startY), 0, box.height - h);
+
+        active.dataset.x = x;
+        active.dataset.y = y;
+        active.style.left = x + "px";
+        active.style.top = y + "px";
+
+        if (e.cancelable) e.preventDefault();
+      }
+
+      function up() {
+        if (!active) return;
+
+        /* The held piece spins on a 2.4s loop. Work out how far round
+           it was at the moment of release: between a quarter and three
+           quarters of a turn it is showing its back, so it stays
+           mirrored rather than snapping to the front. */
+        var SPIN_MS = 2400;
+        var started = parseFloat(active.dataset.spinStart || 0);
+        var phase = started ? ((performance.now() - started) % SPIN_MS) / SPIN_MS : 0;
+        var facingAway = phase > 0.25 && phase < 0.75;
+
+        active.style.setProperty("--face", facingAway ? "-1" : "1");
+        active.classList.remove("is-held");
+        active.style.setProperty("--tilt", "0deg");
+        active = null;
+      }
+
+      stage.addEventListener("mousedown", down);
+      window.addEventListener("mousemove", move);
+      window.addEventListener("mouseup", up);
+
+      stage.addEventListener("touchstart", down, { passive: false });
+      window.addEventListener("touchmove", move, { passive: false });
+      window.addEventListener("touchend", up);
+
+      pieces.forEach(function (el) {
+        el.style.zIndex = el.dataset.z || 1;
+        el.addEventListener("dragstart", function (e) { e.preventDefault(); });
+      });
+
+      /* wait for the art to load before locking pixel positions */
+      window.addEventListener("load", pin);
+      setTimeout(pin, 400);
+    })();
+  </script>
+
+  <script>
+    (function () {
+      /* hold the reveal until the loading screen has handed over,
+         so nothing fades in behind it */
+      function start() {
+      var items = document.querySelectorAll("[data-reveal]");
+      if (!("IntersectionObserver" in window)) {
+        for (var j = 0; j < items.length; j++) items[j].classList.add("is-visible");
+        return;
+      }
+      var observer = new IntersectionObserver(function (entries) {
+        var batch = 0;
+        entries.forEach(function (entry) {
+          if (!entry.isIntersecting) return;
+          entry.target.style.transitionDelay = (batch * 90) + "ms";
+          entry.target.classList.add("is-visible");
+          observer.unobserve(entry.target);
+          batch++;
+        });
+      }, { threshold: 0.12, rootMargin: "0px 0px -8% 0px" });
+      items.forEach(function (el) { observer.observe(el); });
+      }
+
+      if (document.body.classList.contains("is-loaded")) start();
+      else document.addEventListener("kaha:ready", start, { once: true });
+    })();
+  </script>
+
+
+  <script>
+    /* ----------------------------------------------------------
+       The footer piece: same behaviour as the collage art, but
+       it can only be moved inside the footer.
+       ---------------------------------------------------------- */
+    (function () {
+      var el = document.getElementById("footer-art");
+      var bounds = document.querySelector(".home-footer");
+      if (!el || !bounds) return;
+
+      var dragging = false;
+      var startX = 0, startY = 0, offX = 0, offY = 0;
+
+      function clamp(v, min, max) { return v < min ? min : (v > max ? max : v); }
+
+      function down(e) {
+        dragging = true;
+        el.style.setProperty("--tilt", ((Math.random() * 14) - 7).toFixed(1) + "deg");
+        el.dataset.spinStart = performance.now();
+        el.classList.add("is-held");
+        el.style.zIndex = 50;
+
+        var p = e.touches ? e.touches[0] : e;
+        startX = p.clientX;
+        startY = p.clientY;
+        offX = parseFloat(el.dataset.dx || 0);
+        offY = parseFloat(el.dataset.dy || 0);
+        if (e.cancelable) e.preventDefault();
+      }
+
+      function move(e) {
+        if (!dragging) return;
+        var p = e.touches ? e.touches[0] : e;
+
+        var b = bounds.getBoundingClientRect();
+        var r = el.getBoundingClientRect();
+
+        /* how far it may travel before it leaves the footer */
+        var dx = offX + (p.clientX - startX);
+        var dy = offY + (p.clientY - startY);
+
+        var curDx = parseFloat(el.dataset.dx || 0);
+        var curDy = parseFloat(el.dataset.dy || 0);
+        var homeLeft = r.left - curDx;
+        var homeTop = r.top - curDy;
+
+        dx = clamp(dx, b.left - homeLeft, b.right - r.width - homeLeft);
+        dy = clamp(dy, b.top - homeTop, b.bottom - r.height - homeTop);
+
+        el.dataset.dx = dx;
+        el.dataset.dy = dy;
+        el.style.left = dx + "px";
+        el.style.top = dy + "px";
+        if (e.cancelable) e.preventDefault();
+      }
+
+      function up() {
+        if (!dragging) return;
+        dragging = false;
+
+        /* keep whichever way the spin left it facing */
+        var SPIN_MS = 2400;
+        var started = parseFloat(el.dataset.spinStart || 0);
+        var phase = started ? ((performance.now() - started) % SPIN_MS) / SPIN_MS : 0;
+        el.style.setProperty("--face", (phase > 0.25 && phase < 0.75) ? "-1" : "1");
+
+        el.classList.remove("is-held");
+        el.style.setProperty("--tilt", "0deg");
+      }
+
+      el.addEventListener("mousedown", down);
+      window.addEventListener("mousemove", move);
+      window.addEventListener("mouseup", up);
+
+      el.addEventListener("touchstart", down, { passive: false });
+      window.addEventListener("touchmove", move, { passive: false });
+      window.addEventListener("touchend", up);
+
+      el.addEventListener("dragstart", function (e) { e.preventDefault(); });
+    })();
+  </script>
+
+
+
+
+
+
+  <script>
+    /* ----------------------------------------------------------
+       Loading screen.
+
+       One piece drifts around the screen on a slow, continuous
+       noise signal and swerves away from the cursor, while the
+       counter runs 0 to 100 over ten seconds.
+       ---------------------------------------------------------- */
+    (function () {
+      var loader = document.getElementById("loader");
+      var dog = document.getElementById("loaderDog");
+      var pct = document.getElementById("loaderPct");
+      if (!loader || !dog) return;
+
+      /* hand the page over: fade everything in */
+      function ready() {
+        document.body.classList.remove("is-loading");
+        document.body.classList.add("is-loaded");
+        document.dispatchEvent(new CustomEvent("kaha:ready"));
+      }
+
+      /* the loading screen is a first-visit thing. once it has run,
+         a refresh or a return from another page goes straight in. */
+      var seen;
+      try { seen = sessionStorage.getItem("kaha-loaded"); } catch (e) { seen = null; }
+
+      if (seen) {
+        loader.style.display = "none";
+        ready();
+        return;
+      }
+
+      var DURATION = 5000;                /* five seconds */
+      var ASPECT = 824 / 1027;            /* art_11 is 1027 x 824 */
+      var AVOID_RADIUS = window.innerWidth < 700 ? 150 : 260;
+      var AVOID_FORCE = 1200;
+      var AVOID_DECAY = 1.9;
+
+      document.body.classList.add("is-loading");
+
+      var W = window.innerWidth, H = window.innerHeight;
+      var pointer = { x: -9999, y: -9999, live: false };
+
+      function rand(a, b) { return a + Math.random() * (b - a); }
+
+      var size = dog.offsetWidth || (window.innerWidth < 700 ? 200 : 300);
+      var d = {
+        size: size,
+        half: size / 2,
+        halfH: (size * ASPECT) / 2,
+        x: rand(W * 0.25, W * 0.75),
+        y: rand(H * 0.25, H * 0.75),
+        heading: rand(0, Math.PI * 2),
+        speed: rand(95, 135),
+        turnAmp: rand(0.32, 0.6),
+        seed: rand(0, 100),
+        ax: 0, ay: 0,
+        drawAngle: 0,
+        facing: 1
+      };
+
+      function measure() {
+        W = window.innerWidth; H = window.innerHeight;
+        d.size = dog.offsetWidth || d.size;
+        d.half = d.size / 2;
+        d.halfH = (d.size * ASPECT) / 2;
+      }
+      window.addEventListener("resize", measure);
+
+      window.addEventListener("mousemove", function (e) {
+        pointer.x = e.clientX; pointer.y = e.clientY; pointer.live = true;
+      }, { passive: true });
+
+      window.addEventListener("touchmove", function (e) {
+        var t = e.touches[0];
+        if (!t) return;
+        pointer.x = t.clientX; pointer.y = t.clientY; pointer.live = true;
+      }, { passive: true });
+
+      /* smooth, non-repeating steering */
+      function wander(t, seed) {
+        return Math.sin(t * 0.41 + seed) * 0.55 +
+               Math.sin(t * 0.87 + seed * 2.3) * 0.30 +
+               Math.sin(t * 1.53 + seed * 4.1) * 0.15;
+      }
+
+      var started = null, last = 0, clock = 0, running = true;
+
+      function frame(now) {
+        if (!started) { started = now; measure(); }
+        if (!last) last = now;
+        var dt = Math.min((now - last) / 1000, 0.05);
+        last = now;
+        clock += dt;
+
+        /* a real load never runs at a constant rate: this moves off
+           quickly, stalls around the middle, then picks up and
+           finishes fast. t is the clock, eased gives the number. */
+        var t = Math.min(1, (now - started) / DURATION);
+        var eased =
+            t < 0.25 ? t * 1.55                                   /* off the mark */
+          : t < 0.62 ? 0.39 + (t - 0.25) * 0.30                   /* the slow patch */
+          : t < 0.88 ? 0.50 + (t - 0.62) * 1.35                   /* picking up */
+                     : 0.85 + (t - 0.88) * 1.25;                  /* home stretch */
+        pct.textContent = Math.min(100, Math.round(eased * 100));
+
+        d.heading += wander(clock, d.seed) * d.turnAmp * dt;
+
+        var vx = Math.cos(d.heading) * d.speed;
+        var vy = Math.sin(d.heading) * d.speed;
+
+        if (pointer.live) {
+          var dx = d.x - pointer.x;
+          var dy = d.y - pointer.y;
+          var dist = Math.sqrt(dx * dx + dy * dy) || 0.001;
+          if (dist < AVOID_RADIUS) {
+            var t2 = 1 - dist / AVOID_RADIUS;
+            var push = t2 * t2 * AVOID_FORCE * dt * 4;
+            d.ax += (dx / dist) * push;
+            d.ay += (dy / dist) * push;
+          }
+        }
+
+        var decay = Math.exp(-AVOID_DECAY * dt);
+        d.ax *= decay; d.ay *= decay;
+
+        var tx = vx + d.ax, ty = vy + d.ay;
+        d.x += tx * dt;
+        d.y += ty * dt;
+
+
+        /* it never leaves the screen: at an edge it turns and heads
+           off in another direction, rather than wrapping around */
+        var pad = 12;
+        var minX = d.half + pad, maxX = W - d.half - pad;
+        var minY = d.halfH + pad, maxY = H - d.halfH - pad;
+
+        if (d.x < minX || d.x > maxX) {
+          d.x = Math.max(minX, Math.min(maxX, d.x));
+          /* reflect the heading off a vertical wall, with a little
+             randomness so it doesn't bounce down a repeating path */
+          d.heading = Math.PI - d.heading + rand(-0.35, 0.35);
+          d.ax = 0;
+        }
+
+        if (d.y < minY || d.y > maxY) {
+          d.y = Math.max(minY, Math.min(maxY, d.y));
+          d.heading = -d.heading + rand(-0.35, 0.35);
+          d.ay = 0;
+        }
+
+        /* the art faces left, so mirror it when heading right */
+        tx = Math.cos(d.heading) * d.speed + d.ax;
+        ty = Math.sin(d.heading) * d.speed + d.ay;
+        var heading = Math.atan2(ty, tx) * 180 / Math.PI;
+        var want = tx > 0 ? -1 : 1;
+        var target = tx > 0 ? heading : heading + 180;
+        if (want !== d.facing && Math.abs(tx) > d.speed * 0.25) d.facing = want;
+
+        var delta = ((target - d.drawAngle + 540) % 360) - 180;
+        d.drawAngle += delta * Math.min(1, dt * 5);
+
+        dog.style.transform =
+          "translate3d(" + (d.x - d.half).toFixed(1) + "px," +
+          (d.y - d.halfH).toFixed(1) + "px,0) rotate(" +
+          (d.drawAngle * 0.22).toFixed(1) + "deg)" +
+          (d.facing === -1 ? " scaleX(-1)" : "");
+
+        if (t >= 1 && running) {
+          running = false;
+          try { sessionStorage.setItem("kaha-loaded", "1"); } catch (e) {}
+          loader.classList.add("is-done");
+          ready();
+          setTimeout(function () { loader.style.display = "none"; }, 750);
+          return;
+        }
+        requestAnimationFrame(frame);
+      }
+
+      requestAnimationFrame(frame);
+    })();
+  </script>
+
+</body>
+</html>
